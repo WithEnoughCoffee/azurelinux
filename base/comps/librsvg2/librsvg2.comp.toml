@@ -1,5 +1,29 @@
 [components.librsvg2]
 
+# Use vendored Rust dependencies (like RHEL) to avoid dynamic cargo BR generation
+# which pulls in rust-image+avif-native → dav1d, a crate not available in AZL.
+# https://52.249.25.247/koji/taskinfo?taskID=2590970
+[[components.librsvg2.overlays]]
+description = "Enable bundled Rust dependencies — AZL does not ship dav1d crate needed by rust-image+avif-native"
+type = "spec-search-replace"
+regex = '%global\s+bundled_rust_deps\s+0'
+replacement = '%global bundled_rust_deps 1'
+
+# AZL does not ship the Fedora rust-toolset metapackage; cargo-rpm-macros pulls in
+# the cargo/rust toolchain we need to build the vendored crates. Use targeted tag
+# overlays (remove + add) rather than a regex per review feedback.
+[[components.librsvg2.overlays]]
+description = "Remove rust-toolset BR — AZL does not ship the Fedora rust-toolset metapackage"
+type = "spec-remove-tag"
+tag = "BuildRequires"
+value = "rust-toolset"
+
+[[components.librsvg2.overlays]]
+description = "Add cargo-rpm-macros BR — provides the cargo/rust toolchain used to build vendored crates"
+type = "spec-insert-tag"
+tag = "BuildRequires"
+value = "cargo-rpm-macros"
+
 [[components.librsvg2.overlays]]
 description = "Disable AVIF support to remove dav1d dependency"
 type = "spec-search-replace"
