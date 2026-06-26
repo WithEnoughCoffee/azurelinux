@@ -6,7 +6,7 @@
 #
 # The custom (minimal-plugin) build still vendors the *full* dependency tree so
 # the build is hermetic and offline; only the selected plugins are compiled in
-# (see %%{plugin_tags} in telegraf.spec). Pruning vendor/ is intentionally NOT
+# (see %{buildtags} in telegraf.spec). Pruning vendor/ is intentionally NOT
 # done — it would break reproducibility and `go mod verify`.
 #
 # Usage:
