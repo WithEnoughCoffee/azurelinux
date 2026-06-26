@@ -2,7 +2,8 @@
 # Shipped in AzL 3.0 but missing from 4.0; this restores it as a general-purpose metrics
 # agent. Not available in Fedora; maintained as a local spec with vendored Go dependencies.
 # Curated ("Balanced") custom build keeps the binary's dependency/CVE surface small.
-# Packaged per Fedora Go guidelines for upstreaming.
+# Packaged per the Fedora Go packaging guidelines for upstreaming:
+# https://docs.fedoraproject.org/en-US/packaging-guidelines/Golang/
 [components.telegraf]
 spec = { type = "local", path = "telegraf.spec" }
 # Local Go package: changelog/Release are hand-managed, not derived by rpmautospec.
@@ -21,6 +22,6 @@ filename = "telegraf-1.38.2-vendor.tar.bz2"
 # non-upstream sources, e.g. base/comps/espeak-ng/espeak-ng.comp.toml. The blob must be
 # uploaded before CI source checks and package builds can fetch it; the merge queue's
 # sources-upload pipeline publishes changed-component sources.
-hash = "68d9ef0d9d620cbcfa524be8c669bcedd3ba4195ebe52ef0228e98a50feab056022036500f46043e8f944e8af022a097f113af92f31427c96bdc947f8e389cf3"
+hash = "bfb5291bd7e3f646b57751232fb1072248a63620f34ded2c058b7d2d1b522f0068398c0d9d25fe1e4cdc7475973de34754e01cd13ef8e71840737bdf2878ae39"
 hash-type = "SHA512"
-origin = { type = "download", uri = "https://azltempstaginglookaside.blob.core.windows.net/repo/pkgs_modified/telegraf/telegraf-1.38.2-vendor.tar.bz2/sha512/68d9ef0d9d620cbcfa524be8c669bcedd3ba4195ebe52ef0228e98a50feab056022036500f46043e8f944e8af022a097f113af92f31427c96bdc947f8e389cf3/telegraf-1.38.2-vendor.tar.bz2" }
+origin = { type = "download", uri = "https://azltempstaginglookaside.blob.core.windows.net/repo/pkgs_modified/telegraf/telegraf-1.38.2-vendor.tar.bz2/sha512/bfb5291bd7e3f646b57751232fb1072248a63620f34ded2c058b7d2d1b522f0068398c0d9d25fe1e4cdc7475973de34754e01cd13ef8e71840737bdf2878ae39/telegraf-1.38.2-vendor.tar.bz2" }
