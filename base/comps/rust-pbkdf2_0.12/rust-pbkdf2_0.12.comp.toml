@@ -1,0 +1,11 @@
+[components.'rust-pbkdf2_0.12']
+# Version-suffixed compat package providing the OLDER pbkdf2 0.12.2 (the
+# version the default rust-pbkdf2 previously resolved to), serving existing
+# consumers that require pbkdf2 < 0.13.0. See rust-pbkdf2.comp.toml.
+spec = { type = "upstream", upstream-distro = { name = "fedora", version = "43" }, upstream-name = "rust-pbkdf2", upstream-commit = "fcfb406c8d1ced473767b8e5cf8604ac720b4316" }
+
+[[components.'rust-pbkdf2_0.12'.overlays]]
+description = "Rename package to rust-pbkdf2_0.12 so it can coexist with the newer default rust-pbkdf2"
+type = "spec-set-tag"
+tag = "Name"
+value = "rust-pbkdf2_0.12"

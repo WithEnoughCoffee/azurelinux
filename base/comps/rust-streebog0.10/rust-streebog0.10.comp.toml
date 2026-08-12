@@ -1,0 +1,13 @@
+[components.'rust-streebog0.10']
+# Version-suffixed compat package providing the OLDER streebog 0.10.2 (the
+# version the default rust-streebog previously resolved to), preserving the
+# streebog < 0.11.0 range for any consumer that needs it. Distinct from the
+# pre-existing rust-streebog0.9 compat package, which serves an even older
+# streebog 0.9 range. See rust-streebog.comp.toml.
+spec = { type = "upstream", upstream-distro = { name = "fedora", version = "43" }, upstream-name = "rust-streebog", upstream-commit = "2ef7ca93dc4118c455850a5cb95e1fa62d630fe3" }
+
+[[components.'rust-streebog0.10'.overlays]]
+description = "Rename package to rust-streebog0.10 so it can coexist with the newer default rust-streebog"
+type = "spec-set-tag"
+tag = "Name"
+value = "rust-streebog0.10"

@@ -1,0 +1,7 @@
+[components.rust-sha2]
+# Pin past the distro default snapshot to Fedora f43 HEAD, providing sha2
+# 0.11.0, required by rust-zip 8.6.0 in uv 0.10.12's crate-alignment cascade
+# (crate(sha2/default) >= 0.11.0). Existing consumers requiring
+# sha2 < 0.11.0 are served by the new rust-sha2_0.10 compat package (pinned
+# at the commit this default previously resolved to).
+spec = { type = "upstream", upstream-distro = { name = "fedora", version = "43" }, upstream-commit = "8d5ff6c894a8ab72e353ec5d335957de7cf7ca39" }

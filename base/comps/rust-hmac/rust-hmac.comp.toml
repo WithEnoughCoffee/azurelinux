@@ -1,0 +1,9 @@
+[components.rust-hmac]
+# Pin past the distro default snapshot to Fedora f43 HEAD, providing hmac
+# 0.13.0, required by rust-zip 8.6.0 in uv 0.10.12's crate-alignment cascade
+# (crate(hmac/default) >= 0.13.0). Existing consumers requiring
+# hmac < 0.13.0 are served by the new rust-hmac0.12 compat package (pinned
+# at the commit this default previously resolved to); this is distinct from
+# the pre-existing rust-hmac0.11 compat package, which serves an even older
+# hmac 0.11 range.
+spec = { type = "upstream", upstream-distro = { name = "fedora", version = "43" }, upstream-commit = "1bf863b1cf979a147fbf9a3f6bffc538cc82a591" }
