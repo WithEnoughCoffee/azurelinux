@@ -1,0 +1,7 @@
+[components.rust-proptest-macro]
+# Pin past the distro default snapshot to Fedora f43 HEAD, providing
+# proptest-macro 0.5.0, required by rust-proptest 1.11.0's optional
+# "attr-macro"/"proptest-macro" feature subpackages
+# (crate(proptest-macro/default) >= 0.5.0, < 0.6.0). Without this bump those
+# rust-proptest subpackages have an unsatisfiable Requires.
+spec = { type = "upstream", upstream-distro = { name = "fedora", version = "43" }, upstream-commit = "66e57060639fe6cec2eb5424ee6acf151dd7af40" }

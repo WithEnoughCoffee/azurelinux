@@ -1,0 +1,8 @@
+[components.rust-convert_case]
+# New component: rust-convert_case (unversioned/default) does not exist in
+# AZL; only version-pinned compat variants (0.4, 0.6, 0.7) are packaged. It
+# is required transitively by rust-proptest-macro 0.5.0
+# (crate(convert_case/default) >= 0.10.0, < 0.12.0), itself needed by
+# rust-proptest 1.11.0's "attr-macro"/"proptest-macro" feature subpackages.
+# Pinned to Fedora f43 HEAD, providing convert_case 0.10.0.
+spec = { type = "upstream", upstream-distro = { name = "fedora", version = "43" }, upstream-commit = "cdfa9545236b7c8ff0e311ccab27c8a364d8127a" }

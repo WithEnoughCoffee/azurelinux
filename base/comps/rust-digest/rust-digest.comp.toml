@@ -1,0 +1,8 @@
+[components.rust-digest]
+# Pin past the distro default snapshot to Fedora f43 HEAD, providing digest
+# 0.11.3, required by the bumped aes/hmac/md-5/pbkdf2/sha1/sha2/streebog
+# defaults in uv 0.10.12's crate-alignment cascade
+# (crate(digest/default) >= 0.11.0). Existing consumers requiring
+# digest < 0.11.0 are served by the new rust-digest0.10 compat package
+# (pinned at the commit this default previously resolved to).
+spec = { type = "upstream", upstream-distro = { name = "fedora", version = "43" }, upstream-commit = "5183b7700eda8e1c31efd048b9c4746fbc8e134f" }

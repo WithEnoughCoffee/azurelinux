@@ -1,0 +1,9 @@
+[components.rust-pbkdf2]
+# Pin past the distro default snapshot to Fedora f43 HEAD, providing pbkdf2
+# 0.13.0, required by rust-zip 8.6.0 in uv 0.10.12's crate-alignment cascade
+# (crate(pbkdf2/default) >= 0.13.0). Existing consumers requiring
+# pbkdf2 < 0.13.0 are served by the new rust-pbkdf2_0.12 compat package
+# (pinned at the commit this default previously resolved to). The f43 spec
+# at this commit patches out an unpackaged belt-hash dev-dependency; that
+# patch is inherited automatically from the upstream import.
+spec = { type = "upstream", upstream-distro = { name = "fedora", version = "43" }, upstream-commit = "64125a7336413fb33a8a876b293fed44d72d9292" }

@@ -1,0 +1,11 @@
+[components.'rust-digest0.10']
+# Version-suffixed compat package providing the OLDER digest 0.10.7 (the
+# version the default rust-digest previously resolved to), serving existing
+# consumers that require digest < 0.11.0. See rust-digest.comp.toml.
+spec = { type = "upstream", upstream-distro = { name = "fedora", version = "43" }, upstream-name = "rust-digest", upstream-commit = "47427be5cbcffc742019086715f7ec4db281eaf0" }
+
+[[components.'rust-digest0.10'.overlays]]
+description = "Rename package to rust-digest0.10 so it can coexist with the newer default rust-digest"
+type = "spec-set-tag"
+tag = "Name"
+value = "rust-digest0.10"

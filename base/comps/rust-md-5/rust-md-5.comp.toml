@@ -1,0 +1,9 @@
+[components.rust-md-5]
+# Pin past the distro default snapshot to Fedora f43 HEAD, providing md-5
+# 0.11.0, required by hmac 0.13.0's dev/test matrix in uv 0.10.12's
+# crate-alignment cascade (crate(md-5/default) >= 0.11.0). Existing
+# consumers requiring md-5 < 0.11.0 are served by the new rust-md-5_0.10
+# compat package (pinned at the commit this default previously resolved
+# to); this is distinct from the pre-existing rust-md-5_0.9 compat package,
+# which serves an even older md-5 0.9 range.
+spec = { type = "upstream", upstream-distro = { name = "fedora", version = "43" }, upstream-commit = "dbe5d647a6793ce21b796b72417239b87f8ea86b" }
